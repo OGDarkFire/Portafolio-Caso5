@@ -144,20 +144,6 @@
                        <div class="card-header">
                             <div class="mt-2">
                                 <h4>Tareas Pendientes</h4>
-
-                              <div class="radio-wrapper">
-                                <p class="correct"><i class="ion-checkmark-round"></i>
-                                </p>
-                                <p class="neutral-icon"><i class="ion-record"></i>
-                                </p>
-                                <p class="wrong"><i class="ion-close-round"></i></p>
-                                <input type="radio" name="event" class="yes" id="radio-yes" />
-                                <label for="radio-yes"></label>
-                                <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
-                                <label for="radio-neutral"></label>
-                                <input type="radio" name="event" class="no" id="radio-no" />
-                                <label for="radio-no"></label>
-                              </div>
                                 <span class="line"></span>  
                             </div>
                         </div>
@@ -166,8 +152,21 @@
                             <div class="producto">
                                 <div class="contenedor_producto">
                                     <div class="detalle">
-                                        <h5>{{TA.Nom_Ta}}</h5>
+                                        <a href="{{ TA.get_absolute_url }}"><h1>{{TA.Nom_Ta}}</h1></a>
                                     </div>
+                                    <div class="radio-wrapper">
+                                        <p class="correct"><i class="ion-checkmark-round"></i>
+                                        </p>
+                                        <p class="neutral-icon"><i class="ion-record"></i>
+                                        </p>
+                                        <p class="wrong"><i class="ion-close-round"></i></p>
+                                        <input type="radio" name="event" class="yes" id="radio-yes" />
+                                        <label for="radio-yes"></label>
+                                        <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
+                                        <label for="radio-neutral"></label>
+                                        <input type="radio" name="event" class="no" id="radio-no" />
+                                        <label for="radio-no"></label>
+                                      </div>
                                 </div>
                             </div>
                             {% endfor %}

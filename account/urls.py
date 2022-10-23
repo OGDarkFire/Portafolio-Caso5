@@ -24,4 +24,5 @@ urlpatterns = [
     path('ListarTareaSub/', views.ListarTareaSub, name='ListarTareaSub'),
     path('EliminarTareaSub/<id>/', views.EliminarTareaSub, name='EliminarTareaSub'),
     path('TareaA/', views.TareaA, name='TareaA'),
+    path('detail/<int:id>', views.detail_page, name='detail'),
 ]

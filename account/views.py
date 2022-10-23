@@ -60,6 +60,10 @@ def employee(request):
     Tareasa = TareaAce.objects.all()
     return render(request, 'employee.html', {'Tareasa':Tareasa})
 
+def detail_page(request,id):
+    obj=TareaAce.objects.get(id=id)
+    return render(request, 'detail.html',{'obj':obj})
+    
 #def employee(request):
     tareas = Tarea.objects.all()
     data = {
