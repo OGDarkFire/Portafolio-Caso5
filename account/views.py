@@ -57,11 +57,8 @@ def customer(request):
     return render(request,'customer.html')
 
 def employee(request):
-    tareas = Tarea.objects.all()
-    data = {
-        'tareas':tareas
-    }
-    return render(request,'employee.html',data)
+    Tareasa = TareaAce.objects.all()
+    return render(request, 'employee.html', {'Tareasa':Tareasa})
 
 def TareaA(request):
     Tareasa = TareaAce.objects.all()

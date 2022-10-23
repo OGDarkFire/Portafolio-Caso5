@@ -78,12 +78,6 @@
                     <li class="nav-item">
                         <a href="{% url 'AgregarTareaSub' %}" class="nav-link">Crear Tareas subordinadas</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Modificar Tarea</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Reasignar Tarea</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -156,15 +150,12 @@
                             </div>
                         </div>
                         <div class="productos">
-                            {% for p in tareas %}
+                            {% for TA in Tareasa %}
                             <div class="producto">
                                 <div class="contenedor_producto">
                                     <div class="detalle">
-                                        <h5>{{p.Nombre_Tarea}}</h5>
-                                        <h5>{{p.Responsable}}</h5>
-                                        <h5>{{p.Fecha_desde}}</h5>
-                                        <h5>{{p.Fecha_hasta}}</h5>
-                                        <h5>{{p.Descripcion}}</h5>
+                                        <h5>{{TA.Nom_Ta}}</h5>
+                                        <h5>{{TA.TareaAce}}</h5>
                                     </div>
                                 </div>
                             </div>

@@ -73,6 +73,9 @@ class Usuario(models.Model):
     Rol = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True, default=0)
     Unidad = models.PositiveSmallIntegerField(choices=ROLE_CHOICES2, blank=True, null=True, default=0)
 
+    def __str__(self):
+            return str(self.Nombre)
+
 class Tarea(models.Model):
     Nombre_Tarea = models.CharField(max_length=50)
     Responsable = models.OneToOneField(User, on_delete=models.CASCADE)
