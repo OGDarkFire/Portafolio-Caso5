@@ -111,27 +111,20 @@
                 <h3 class="font-weight-light">Tareas En Cola</h3>
                 <span class="line mb-5"></span>
                 <div class="row">
-                    <div class="col-1 text-danger pt-1"></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 1</h6>
-                        <p class="subtitle"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 2</h6>
-                        <p class="subtitle">Lorem ipsum dolor sit consectetur.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 3</h6>
-                        <p class="subtitle">voluptate commodi illo voluptatib.</p>
-                        <hr>
+                    <div class="productos">
+                        {% for p in tareas %}
+                        <div class="producto">
+                            <div class="contenedor_producto">
+                                <div class="detalle">
+                                    <h5>{{p.Nombre_Tarea}}</h5>
+                                    <h5>{{p.Responsable}}</h5>
+                                    <h5>{{p.Fecha_desde}}</h5>
+                                    <h5>{{p.Fecha_hasta}}</h5>
+                                    <h5>{{p.Descripcion}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -155,7 +148,6 @@
                                 <div class="contenedor_producto">
                                     <div class="detalle">
                                         <h5>{{TA.Nom_Ta}}</h5>
-                                        <h5>{{TA.TareaAce}}</h5>
                                     </div>
                                 </div>
                             </div>

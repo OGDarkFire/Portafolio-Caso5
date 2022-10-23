@@ -60,6 +60,13 @@ def employee(request):
     Tareasa = TareaAce.objects.all()
     return render(request, 'employee.html', {'Tareasa':Tareasa})
 
+#def employee(request):
+    tareas = Tarea.objects.all()
+    data = {
+        'tareas':tareas
+    }
+    return render(request,'employee.html',data)
+
 def TareaA(request):
     Tareasa = TareaAce.objects.all()
     return render(request, 'TareaA/Listar.html', {'Tareasa':Tareasa})
