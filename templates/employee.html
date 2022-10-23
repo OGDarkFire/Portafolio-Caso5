@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="{% static 'css/StyleWeb.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
 </head>
 <style>
     .header{
@@ -121,6 +123,11 @@
                                     <h5>{{p.Fecha_desde}}</h5>
                                     <h5>{{p.Fecha_hasta}}</h5>
                                     <h5>{{p.Descripcion}}</h5>
+                                    <!-- Botones bootstrap -->
+                                    <button type="button" class="btn btn-success" data-toggle="buttons">Success</button>
+                                    <button type="button" class="btn btn-warning" data-toggle="buttons">Warning</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="buttons">Danger</button>
+                                    <!-- Botones bootstrap -->  
                                 </div>
                             </div>
                         </div>
@@ -139,6 +146,34 @@
                        <div class="card-header">
                             <div class="mt-2">
                                 <h4>Tareas Pendientes</h4>
+                                
+                                <!-- Triple switcher -->
+
+                              <div class="radio-wrapper">
+                                <p class="correct"><i class="ion-checkmark-round"></i>
+                                </p>
+                                <p class="neutral-icon"><i class="ion-record"></i>
+                                </p>
+                                <p class="wrong"><i class="ion-close-round"></i></p>
+                                <input type="radio" name="event" class="yes" id="radio-yes" />
+                            
+                                <label for="radio-yes"></label>
+                            
+                                <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
+                                <label for="radio-neutral"></label>
+                            
+                            
+                                <input type="radio" name="event" class="no" id="radio-no" />
+                                <label for="radio-no"></label>
+                              </div>
+                            
+
+                        <!-- Triple switcher-->
+
+
+
+
+
                                 <span class="line"></span>  
                             </div>
                         </div>
