@@ -83,6 +83,19 @@ class Tarea(models.Model):
     def __str__(self):
         return self.Nombre_Tarea
 
+class Tarea2(models.Model):
+    NombreTa = models.ForeignKey(Tarea, on_delete=models.PROTECT, blank=True, null=True)
+
+    def __str__(self):
+            return str(self.NombreTa)
+
+class TareaAce(models.Model):
+    Nom_Ta = models.ForeignKey(Tarea2, on_delete=models.PROTECT, blank=True, null=True)
+    TareaAce = models.ManyToManyField(Tarea,blank=True, null=True)
+
+    def __str__(self):
+        return str(self.Nom_Ta)
+
 class TareaSub(models.Model):
     Nombre_TareaS = models.CharField(max_length=50)
     ResponsableS = models.ForeignKey(Usuario, on_delete=models.PROTECT)
@@ -92,4 +105,4 @@ class TareaSub(models.Model):
     DescripcionS = models.TextField()
 
     def __str__(self):
-        return self.Nombre_TareaS
+        return str(self.Nombre_TareaS)

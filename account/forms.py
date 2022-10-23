@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub
+from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -81,4 +81,14 @@ class TareasForm(forms.ModelForm):
 class TareasSubForm(forms.ModelForm):
     class Meta:
         model = TareaSub
+        fields = '__all__'
+
+class TareaAForm(forms.ModelForm):
+    class Meta:
+        model = TareaAce
+        fields = '__all__'
+
+class Tarea2Form(forms.ModelForm):
+    class Meta:
+        model = Tarea2
         fields = '__all__'
