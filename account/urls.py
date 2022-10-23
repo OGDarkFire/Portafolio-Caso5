@@ -23,4 +23,5 @@ urlpatterns = [
     path('ModificarTareaSub/<id>/', views.ModificarTareaSub, name='ModificarTareaSub'),
     path('ListarTareaSub/', views.ListarTareaSub, name='ListarTareaSub'),
     path('EliminarTareaSub/<id>/', views.EliminarTareaSub, name='EliminarTareaSub'),
+    path('TareaA/', views.TareaA, name='TareaA'),
 ]

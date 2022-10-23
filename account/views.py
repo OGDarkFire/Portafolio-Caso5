@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
 from .forms import UsuarioForm, UnidadForm, RolForm, JerarquiaForm, TareasForm, TareasSubForm
-from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub
+from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce 
 # Create your views here.
 
 
@@ -56,13 +56,16 @@ def admin(request):
 def customer(request):
     return render(request,'customer.html')
 
-
 def employee(request):
     tareas = Tarea.objects.all()
     data = {
         'tareas':tareas
     }
     return render(request,'employee.html',data)
+
+def TareaA(request):
+    Tareasa = TareaAce.objects.all()
+    return render(request, 'TareaA/Listar.html', {'Tareasa':Tareasa})
 
 #Comienzo Usuario Admin
 

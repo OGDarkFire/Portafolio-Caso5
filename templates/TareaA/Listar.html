@@ -4,67 +4,18 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
     <meta name="author" content="Devcrud">
-    <title>CONTROL DE TAREAS</title>
+    <title>Crear Usuario</title>
+    <!-- font icons -->
     <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <!-- Bootstrap + JohnDoe main styles -->
 	<link rel="stylesheet" href="{% static 'css/StyleWeb.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 </head>
-<style>
-    .header{
-        background: url('{% static "images/Banner.png" %}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        color: #fff;
-    }
-
-#contenido {
-    width: 100%;
-    margin:auto;
-    max-width: 1280px;
-    min-height: 100vh;
-}
-
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.producto {
-    width: 20%;
-    margin-top: 20px;
-}
-
-.producto img {
-    width: 10%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.producto .detalle {
-    padding: 5px;
-}
-
-.producto .contenedor_producto {
-    background-color: white;
-    width: 80%;
-    margin: auto;
-}
-</style>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <h4 class="header-subtitle" >Hello</h4>
-                <h1> hello {{ user.username }} your role is Funcionario</h1>
-            </div>
-        </div>
-    </header>
+    {% load crispy_forms_tags %} 
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
         <div class="container">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,71 +29,17 @@
                     <li class="nav-item">
                         <a href="{% url 'AgregarTareaSub' %}" class="nav-link">Crear Tareas subordinadas</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Modificar Tarea</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Reasignar Tarea</a>
-                    </li>
                 </ul>
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="{% url 'employee' %}" class="nav-link">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'TareaA' %}" class="nav-link">ListarTareaA</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div id="about" class="row about-section">
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Process SA</h3>
-                <span class="line mb-5"></span>
-                <h5 class="mb-3">La empresa “Process SA” se dedica a asesorar a empresas de distintos rubros en el ordenamiento y control
-                    de sus procesos y tareas</h5>
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Informacion Personal</h3>
-                <span class="line mb-5"></span>
-                <ul class="mt40 info list-unstyled">
-                    <li><span>Nombre</span> : {{ user.username }}</li>
-                    <li><span>Email</span> : {{ user.email }}</li>
-                    <li><span>Rol</span> : Funcionario</li>
-                </ul>  
-            </div>
-            <div class="col-lg-4 about-card">
-                <h3 class="font-weight-light">Tareas En Cola</h3>
-                <span class="line mb-5"></span>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 1</h6>
-                        <p class="subtitle"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"></i></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 2</h6>
-                        <p class="subtitle">Lorem ipsum dolor sit consectetur.</p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1 text-danger pt-1"></div>
-                    <div class="col-10 ml-auto mr-3">
-                        <h6>Tarea 3</h6>
-                        <p class="subtitle">voluptate commodi illo voluptatib.</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--Resume Section-->
     <section class="section" id="resume">
         <div class="container">
             <h2 class="mb-5"><span class="text-danger">Panel de Tareas</h2>
@@ -156,15 +53,12 @@
                             </div>
                         </div>
                         <div class="productos">
-                            {% for p in tareas %}
+                            {% for TA in Tareasa %}
                             <div class="producto">
                                 <div class="contenedor_producto">
                                     <div class="detalle">
-                                        <h5>{{p.Nombre_Tarea}}</h5>
-                                        <h5>{{p.Responsable}}</h5>
-                                        <h5>{{p.Fecha_desde}}</h5>
-                                        <h5>{{p.Fecha_hasta}}</h5>
-                                        <h5>{{p.Descripcion}}</h5>
+                                        <h5>{{TA.Nom_Ta}}</h5>
+                                        <h5>{{TA.TareaAce}}</h5>
                                     </div>
                                 </div>
                             </div>
