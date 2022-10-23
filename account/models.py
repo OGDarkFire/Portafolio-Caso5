@@ -87,13 +87,13 @@ class Tarea(models.Model):
         return self.Nombre_Tarea
 
 class Tarea2(models.Model):
-    NombreTa = models.ForeignKey(Tarea, on_delete=models.PROTECT, blank=True, null=True)
+    NombreTa = models.ForeignKey(Tarea, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
             return str(self.NombreTa)
 
 class TareaAce(models.Model):
-    Nom_Ta = models.ForeignKey(Tarea2, on_delete=models.PROTECT, blank=True, null=True)
+    Nom_Ta = models.ForeignKey(Tarea2, on_delete=models.CASCADE, blank=True, null=True)
     TareaAce = models.ManyToManyField(Tarea,blank=True, null=True)
 
     def __str__(self):
@@ -101,8 +101,8 @@ class TareaAce(models.Model):
 
 class TareaSub(models.Model):
     Nombre_TareaS = models.CharField(max_length=50)
-    ResponsableS = models.ForeignKey(Usuario, on_delete=models.PROTECT)
-    TareaMadreS = models.ForeignKey(Tarea, on_delete=models.PROTECT)
+    ResponsableS = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    TareaMadreS = models.ForeignKey(Tarea, on_delete=models.CASCADE)
     Fecha_desdeS = models.DateField()
     Fecha_hastaS = models.DateField()
     DescripcionS = models.TextField()
