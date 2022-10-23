@@ -20,14 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'AgregarUsuario' %}" class="nav-link">Crear Usuarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'ListarUsuario' %}" class="nav-link">Listar Usuario</a>
-                    </li>
-                </ul>
+                
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -45,8 +38,8 @@
                     <th>Nombre</th>
                     <th>Responsable</th>
                     <th>TareaMadre</th>
-                    <th>Fecha_desde</th>
-                    <th>Fecha_hastaS=</th>
+                    <th>Fecha desde</th>
+                    <th>Fecha hasta</th>
                     <th>Descripcion</th>
                     <th>Opciones</th>
                 </tr>
@@ -60,8 +53,8 @@
                     <td>{{S.Fecha_desdeS}}</td>
                     <td>{{S.Fecha_hastaS}}</td>
                     <td>{{S.DescripcionS}}</td>
-                    <td> <a href="{% url 'ModificarUsuario' U.id %}" class="btn btn-secondary">Modificar</a> </td>
-                    <td> <a href="{% url 'EliminarUsuario' U.id %}" class="btn btn-primary">Eliminar</a> </td>
+                    <td> <a href="{% url 'ModificarTareaSub' S.id %}" class="btn btn-secondary">Modificar</a> </td>
+                    <td> <a href="{% url 'EliminarTareaSub' S.id %}" class="btn btn-primary">Eliminar</a> </td>
                 </tr>
                 {% endfor %}
             </table>

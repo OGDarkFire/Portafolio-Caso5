@@ -218,7 +218,7 @@ def ListarTareaSub(request):
 
 
 def ModificarTareaSub(request, id):
-    tareasub = get_object_or_404 (Tareasub,id=id)
+    tareasub = get_object_or_404 (TareaSub,id=id)
     data = {
         'form': TareasSubForm(instance=tareasub)
     }
@@ -227,12 +227,12 @@ def ModificarTareaSub(request, id):
         formulario = TareasSubForm(data=request.POST, instance=tareasub)
         if formulario.is_valid():
             formulario.save()
-            return redirect(to="ListarTarea")
+            return redirect(to="ListarTareaSub")
         data["form"] = formulario
 
     return render(request, 'TareasSub/modificar.html', data)
 
 def EliminarTareaSub(request,id):
-    tareasub = get_object_or_404(Tareasub,id=id)
+    tareasub = get_object_or_404(TareaSub,id=id)
     tareasub.delete()
-    return redirect(to="ListarTarea")
+    return redirect(to="ListarTareaSub")

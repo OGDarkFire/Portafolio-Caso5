@@ -1,3 +1,4 @@
+from tkinter import Widget
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2
@@ -78,10 +79,20 @@ class TareasForm(forms.ModelForm):
         model = Tarea
         fields = '__all__'
 
+        widgets = {
+            "Fecha_desde": forms.SelectDateWidget(),
+            "Fecha_hasta": forms.SelectDateWidget()
+        }
+
 class TareasSubForm(forms.ModelForm):
     class Meta:
         model = TareaSub
         fields = '__all__'
+
+        widgets = {
+            "Fecha_desdeS": forms.SelectDateWidget(),
+            "Fecha_hastaS": forms.SelectDateWidget()
+        }
 
 class TareaAForm(forms.ModelForm):
     class Meta:
