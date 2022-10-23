@@ -1,6 +1,6 @@
 .radio-wrapper {
-  width: 145px;
-  height: 50px;
+  width: 60px;
+  height: 25px;
   display: inline-block;
   vertical-align: middle;
   background: rgba(0, 0, 0, 0.4);
@@ -59,8 +59,8 @@ i {
 .neutral:checked + label {
   border: 2px solid rgb(0, 0, 0);
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: rgb(238, 238, 238);
   background: linear-gradient(to bottom, rgb(238, 238, 238) 0%, rgb(204, 204, 204) 100%);
@@ -68,8 +68,8 @@ i {
 
 .yes + label {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -78,8 +78,8 @@ i {
 
 .yes:checked + label {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: rgb(32, 213, 50);
   background: linear-gradient(to bottom, rgb(32, 213, 50) 0%, rgb(28, 195, 1) 100%);
@@ -94,8 +94,8 @@ i {
 
 .no + label {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   position: absolute;
   right: 0;
@@ -104,8 +104,8 @@ i {
 
 .no:checked + label {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: red;
   -moz-animation-duration: 0.4s;
@@ -183,4 +183,4 @@ i {
   to {
     transform: translate(0px, 0);
   }
-}/*# sourceMappingURL=Style.css.map */
+}
