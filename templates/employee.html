@@ -143,8 +143,7 @@
                     <div class="card">
                        <div class="card-header">
                             <div class="mt-2">
-                                <h4>Tareas Pendientes</h4>
-                                <span class="line"></span>  
+                                <h4>Tareas Asignadas</h4> 
                             </div>
                         </div>
                         <div class="productos">
@@ -152,7 +151,12 @@
                             <div class="producto">
                                 <div class="contenedor_producto">
                                     <div class="detalle">
-                                        <a href="{{ TA.get_absolute_url }}"><h1>{{TA.Nom_Ta}}</h1></a>
+                                        <a href="{{ TA.get_absolute_url }}"><h5>{{TA.Nom_Ta}}</h5></a>
+                                            <ul>
+                                                {% for T in TA.TareaAce.all %}
+                                                    <li>{{T}}</li>
+                                                {% endfor %}
+                                            </ul>
                                     </div>
                                     <div class="radio-wrapper">
                                         <p class="correct"><i class="ion-checkmark-round"></i>

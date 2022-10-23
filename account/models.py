@@ -93,7 +93,7 @@ class Tarea2(models.Model):
             return str(self.NombreTa)
 
 class TareaAce(models.Model):
-    Nom_Ta = models.ForeignKey(Tarea2, on_delete=models.CASCADE, blank=True, null=True)
+    Nom_Ta = models.ForeignKey(Tarea2, on_delete=models.CASCADE, blank=True, null=True)#cambiar a texto llenable
     TareaAce = models.ManyToManyField(Tarea,blank=True, null=True)
 
     def __str__(self):
