@@ -1,7 +1,7 @@
 from tkinter import Widget
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2
+from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2, Atraso, Problema
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -52,7 +52,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'is_admin', 'is_employee', 'is_customer')
+        fields = ('username', 'email', 'password1', 'password2', 'is_admin', 'is_employee', 'is_customer',"is_Uni1","is_Uni2","is_Uni3","is_Jer1","is_Jer2","is_Jer3")
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
@@ -102,4 +102,14 @@ class TareaAForm(forms.ModelForm):
 class Tarea2Form(forms.ModelForm):
     class Meta:
         model = Tarea2
+        fields = '__all__'
+
+class AtrasoForm(forms.ModelForm):
+    class Meta:
+        model = Atraso
+        fields = '__all__'
+
+class ProblemaForm(forms.ModelForm):
+    class Meta:
+        model = Problema
         fields = '__all__'

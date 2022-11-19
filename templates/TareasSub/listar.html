@@ -33,31 +33,31 @@
     <section class="section" id="resume">
         <div class="container">
             <h2 class="mb-5"><span class="text-danger"></span> Listar Tarea Subordinadas</h2>
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Responsable</th>
-                    <th>TareaMadre</th>
-                    <th>Fecha desde</th>
-                    <th>Fecha hasta</th>
-                    <th>Descripcion</th>
-                    <th>Opciones</th>
-                </tr>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Responsable</th>
+                        <th>TareaMadre</th>
+                        <th>Fecha desde</th>
+                        <th>Fecha hasta</th>
+                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                    </tr>
 
-                {% for S in Tareassub %}
+                    {% for S in Tareassub %}
 
-                <tr>
-                    <td>{{S.Nombre_TareaS}}</td>
-                    <td>{{S.ResponsableS}}</td>
-                    <td>{{S.TareaMadreS}}</td>
-                    <td>{{S.Fecha_desdeS}}</td>
-                    <td>{{S.Fecha_hastaS}}</td>
-                    <td>{{S.DescripcionS}}</td>
-                    <td> <a href="{% url 'ModificarTareaSub' S.id %}" class="btn btn-secondary">Modificar</a> </td>
-                    <td> <a href="{% url 'EliminarTareaSub' S.id %}" class="btn btn-primary">Eliminar</a> </td>
-                </tr>
-                {% endfor %}
-            </table>
+                    <tr>
+                        <td>{{S.Nombre_TareaS}}</td>
+                        <td>{{S.ResponsableS}}</td>
+                        <td>{{S.TareaMadreS}}</td>
+                        <td>{{S.Fecha_desdeS}}</td>
+                        <td>{{S.Fecha_hastaS}}</td>
+                        <td>{{S.DescripcionS}}</td>
+                        <td> <a href="{% url 'ModificarTareaSub' S.id %}" class="btn btn-secondary">Modificar</a> </td>
+                        <td> <a href="{% url 'EliminarTareaSub' S.id %}" class="btn btn-primary">Eliminar</a> </td>
+                    </tr>
+                    {% endfor %}
+                </table>
         </div>
     </section>
 </body>

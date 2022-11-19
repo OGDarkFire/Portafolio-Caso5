@@ -33,7 +33,7 @@
                 <form  method="post">
                     {% csrf_token %}
                   <div class="form-group first">
-                    <label for="username">Username</label>
+                    <label for="username">Nombre de Usuario</label>
                       {{ form.username }}
                   </div>
                   <div class="form-group first">
@@ -41,28 +41,64 @@
                       {{ form.email}}
                   </div>
                   <div class="form-group last mb-4">
-                    <label for="password">Password</label>
+                    <label for="password">Contraseña</label>
                       {{ form.password1 }}
                   </div>
                   <div class="form-group last mb-4">
-                    <label for="password">confirm Password</label>
+                    <label for="password">Confirmar Contraseña</label>
                       {{ form.password2 }}
                   </div>
                   <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">Admin</span>
+                    <label class="control control--checkbox mb-0"><span class="caption">Administrador</span>
                         {{ form.is_admin }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">customer</span>
+                    <label class="control control--checkbox mb-0"><span class="caption">Funcionario Sub</span>
                         {{ form.is_customer }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
                   <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">employee</span>
+                    <label class="control control--checkbox mb-0"><span class="caption">Funcionario</span>
                         {{ form.is_employee }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Unidad 1</span>
+                        {{ form.is_Uni1 }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Unidad 2</span>
+                        {{ form.is_Uni2 }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Unidad 3</span>
+                        {{ form.is_Uni3 }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Jefe</span>
+                        {{ form.is_Jer1 }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Supervisor</span>
+                        {{ form.is_Jer2 }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Empleado</span>
+                        {{ form.is_Jer3 }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
