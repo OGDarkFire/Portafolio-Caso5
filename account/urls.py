@@ -44,4 +44,10 @@ urlpatterns = [
     path('EliminarProblema/<id>/', views.EliminarProblema, name='EliminarProblema'),
     path('Listar_Problema/', views.Listar_Problema, name='Listar_Problema'),
     path('Listar_Atraso/', views.Listar_Atraso, name='Listar_Atraso'),
+    path('Listar_TareaF/', views.Listar_TareaF, name='Listar_TareaF'),
+    path('Listar_TareaP/', views.Listar_TareaP, name='Listar_TareaP'),
+    path('AgregarTR/', views.AgregarTR, name='AgregarTR'),
+    path('ListarT/', views.ListarT, name='ListarT'),
+    path('ModificarT/<id>/', views.ModificarT, name='ModificarT'),
+    path('EliminarT/<id>/', views.EliminarT, name='EliminarT'),
 ]

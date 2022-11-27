@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 LOGOUT_REDIRECT_URL = '/'
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

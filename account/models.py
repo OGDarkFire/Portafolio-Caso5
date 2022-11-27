@@ -167,3 +167,10 @@ class Problema(models.Model):
     def __str__(self):
             return str(self.Nombre)
 
+class Estado_Tarea(models.Model):
+    Nombre = models.CharField(max_length=50)
+    Nombre_Tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)
+    Mensaje = models.TextField()
+
+    def __str__(self):
+        return self.Nombre

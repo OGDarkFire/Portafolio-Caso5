@@ -1,7 +1,7 @@
 from tkinter import Widget
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2, Atraso, Problema
+from .models import User, Usuario, Unidad, Rol, Jerarquia, Tarea, TareaSub, TareaAce, Tarea2, Atraso, Problema, Estado_Tarea
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -113,3 +113,9 @@ class ProblemaForm(forms.ModelForm):
     class Meta:
         model = Problema
         fields = '__all__'
+
+class EstadoForm(forms.ModelForm):
+    class Meta:
+        model = Estado_Tarea
+        fields = '__all__'
+        

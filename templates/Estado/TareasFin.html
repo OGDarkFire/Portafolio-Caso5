@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="{% static 'css/StyleWeb.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
 </head>
 <style>
     .header{
@@ -34,7 +36,7 @@
 }
 
 .producto {
-    width: 20%;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -59,7 +61,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <h4 class="header-subtitle" >Bienvenido!</h4>
+                <h4 class="header-subtitle" >Bienvenido!!</h4>
                 <h1> Hola {{ user.username }} tu rol es Funcionario</h1>
             </div>
         </div>
@@ -70,63 +72,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'AgregarTarea' %}" class="nav-link">Crear Tareas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'AgregarTareaSub' %}" class="nav-link">Crear Tareas subordinadas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'ListarProblema' %}" class="nav-link">Ver Problemas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'ListarAtraso' %}" class="nav-link">Ver Atrasos</a>
-                    </li>
-                </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="{% url 'employee' %}" class="nav-link">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{% url 'login_view' %}" class="nav-link">Cerrar session</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'AgregarProblema' %}" class="nav-link">Reportar problema</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
-        <div class="container">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'Listar_TareaF' %}" class="nav-link">Tareas Finalizadas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'Listar_TareaP' %}" class="nav-link">Tareas En Curso</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'ListarT' %}" class="nav-link">Listar Tareas Rechazadas</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
         <div id="about" class="row about-section">
-            <div class="col-lg-6 about-card">
+            <div class="col-lg-4 about-card">
                 <h3 class="font-weight-light">Process SA</h3>
                 <span class="line mb-5"></span>
                 <h5 class="mb-3">La empresa “Process SA” se dedica a asesorar a empresas de distintos rubros en el ordenamiento y control
                     de sus procesos y tareas</h5>
             </div>
-            <div class="col-lg-6 about-card">
+            <div class="col-lg-4 about-card">
                 <h3 class="font-weight-light">Informacion Personal</h3>
                 <span class="line mb-5"></span>
                 <ul class="mt40 info list-unstyled">
@@ -135,43 +98,45 @@
                     <li><span>Rol</span> : Funcionario</li>
                 </ul>  
             </div>
+            <div class="col-lg-4 about-card">
+                <h3 class="font-weight-light">Tareas En Cola</h3>
+                <span class="line mb-1"></span>
+                
+            </div>
         </div>
     </div>
     <section class="section" id="resume">
         <div class="container">
-            <h2 class="mb-3"><span class="text-danger">Panel de Tareas</h2>
+            <h2 class="mb-1"><span class="text-danger">Panel de Tareas</h2>
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                        <div class="card-header">
                             <div class="mt-2">
-                                <h4>Tareas Asignadas</h4>
+                                <h4>Tareas Pendientes</h4>
                                 <span class="line"></span>  
                             </div>
                         </div>
-                        <table class="table table-striped table-hover">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Responsable</th>
-                                <th>Fecha_desde</th>
-                                <th>Fecha_hasta</th>
-                                <th>Descripcion</th>
-                                <th>Opciones</th>
-                            </tr>
-        
-                            {% for T in Tareas %}
-        
-                            <tr>
-                                <td>{{T.Nombre_Tarea}}</td>
-                                <td>{{T.Responsable}}</td>
-                                <td>{{T.Fecha_desde}}</td>
-                                <td>{{T.Fecha_hasta}}</td>
-                                <td>{{T.Descripcion}}</td>
-                                <td> <a href="{% url 'ModificarTarea' T.id %}" class="btn btn-secondary">Modificar</a> </td>
-                                <td> <a href="{% url 'EliminarTarea' T.id %}" class="btn btn-primary">Eliminar</a> </td>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                        <div class="row">
+                            <div class="productos">
+                                {% for p in tareas %}
+                                <div class="producto">
+                                    <div class="contenedor_producto">
+                                        <div class="detalle">
+                                            {% if p.completado == True %}
+                                            <h5>{{p.Nombre_Tarea}}</h5>
+                                            <h5>{{p.Fecha_desde}}</h5>
+                                            <h5>{{p.Fecha_hasta}}</h5>
+                                            <h5>{{p.Descripcion}}</h5>
+                                            {% else %}
+                                            <h5>No hay Tareas Completadas</h5>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

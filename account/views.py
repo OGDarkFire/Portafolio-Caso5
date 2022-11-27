@@ -3,6 +3,7 @@ from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
 from .forms import *
 from .models import *
+from django.contrib import messages
 # Create your views here.
 
 
@@ -45,7 +46,7 @@ def login_view(request):
             else:
                 msg= 'invalid credentials'
         else:
-            msg = 'Quien eres, Que quieres!!!!'
+            msg = 'A ocurrido un problema'
     return render(request, 'login.html', {'form': form, 'msg': msg})
 
 
@@ -95,6 +96,20 @@ def TerminarTarea(request, id):
     context = {'form': form}
     return render(request, 'TareasFun/terminar_tarea.html', context)
 
+def Listar_TareaF(request): 
+    tareas = Tarea.objects.all()
+    data = {
+        'tareas':tareas
+    }
+    return render(request,'Estado/TareasFin.html',data)
+
+def Listar_TareaP(request): 
+    tareas = Tarea.objects.all()
+    data = {
+        'tareas':tareas
+    }
+    return render(request,'Estado/TareasProcc.html',data)
+
 def TareaA(request):
     Tareasa = TareaAce.objects.all()
     return render(request, 'TareaA/Listar.html', {'Tareasa':Tareasa})
@@ -142,6 +157,49 @@ def EliminarUsuario(request,id):
     return redirect(to="ListarUsuario")
 
 #Fin Tareas Admin
+
+#Comienzo Tareas Rechazadas
+def AgregarTR(request):
+    data = {
+        'form': EstadoForm()       
+    }
+    if request.method == 'POST':
+        formulario = EstadoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Guardado Correctamente"
+        else:
+            data["form"] = formulario
+    return render(request,'TareasR/agregarT.html', data)
+
+def ListarT(request):
+    TareasR = Estado_Tarea.objects.all()
+    data = {
+        'TareasR': TareasR
+    }
+    return render(request, 'TareasR/listaTareas.html', data)
+
+def ModificarT(request, id):
+    tareasR = get_object_or_404 (Estado_Tarea,id=id)
+    data = {
+        'form': EstadoForm(instance=tareasR)
+    }
+
+    if request.method == 'POST':
+        formulario = EstadoForm(data=request.POST, instance=tareasR)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="ListarT")
+        data["form"] = formulario
+
+    return render(request, 'TareasR/ModificarT.html', data)
+
+def EliminarT(request,id):
+    tareasR = get_object_or_404(Estado_Tarea,id=id)
+    tareasR.delete()
+    return redirect(to="ListarT")
+
+#Fin Tareas Rechazadas
 
 def AgregarUnidad(request):
     data = {
@@ -217,6 +275,7 @@ def ModificarRol(request, id):
         formulario = RolForm(data=request.POST, instance=rol)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request,"Rol Modificado Correctamente")
             return redirect(to="ListarRol")
         data["form"] = formulario
 
